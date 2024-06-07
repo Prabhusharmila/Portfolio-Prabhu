@@ -31,17 +31,17 @@ navLink.forEach((link) =>
   })
 );
 
-    const moreAboutMeBtn = document.getElementById('more-about-me-btn');
-    const moreAboutMeContent = document.getElementById('more-about-me-content');
-    //const moreAboutMeContent = document.getElementById('bio-text');
+    // const moreAboutMeBtn = document.getElementById('more-about-me-btn');
+    // const moreAboutMeContent = document.getElementById('more-about-me-content');
+    // //const moreAboutMeContent = document.getElementById('bio-text');
 
 
-    moreAboutMeBtn.addEventListener('click', function() {
-        if (moreAboutMeContent.style.display === 'none') {
-            moreAboutMeContent.style.display = 'block';
-            moreAboutMeBtn.textContent = 'Close More About Me';
-        } else {
-            moreAboutMeContent.style.display = 'none';
-            moreAboutMeBtn.textContent = 'More About Me';
-        }
-    });
+    // moreAboutMeBtn.addEventListener('click', function() {
+    //     if (moreAboutMeContent.style.display === 'none') {
+    //         moreAboutMeContent.style.display = 'block';
+    //         moreAboutMeBtn.textContent = 'Close More About Me';
+    //     } else {
+    //         moreAboutMeContent.style.display = 'none';
+    //         moreAboutMeBtn.textContent = 'More About Me';
+    //     }
+    // });

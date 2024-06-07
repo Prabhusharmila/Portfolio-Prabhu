@@ -123,20 +123,32 @@ nav ul.show {
 
 /* Hero section */
 
+/* Hero section */
 .hero {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
+  justify-content: space-evenly; /* Ensure space between nav and about */
   max-width: 68.75rem;
-  margin: auto;
+  margin: 2.5rem auto; /* Add margin to create space between nav and about */
 }
 
-
-.hero img {
-  height: 37.5rem;
-  width: 37.5rem;
+/* Container for the circular frame */
+.hero-img-container {
+  width: 20rem; /* Adjust as needed */
+  height: 20rem; /* Adjust as needed */
+  border-radius: 50%; /* Make it a circle */
+  overflow: hidden; /* Hide overflow content */
+  box-shadow: 0px 2px 15px 2px var(--primary-shadow);
 }
+
+/* Image */
+.hero-img {
+  width: 100%; /* Make the image fill its container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure proper display */
+  border-radius: 30%; /* Make the image circular */
+}
+
 
 .bio {
   width: 25rem;
@@ -244,42 +256,6 @@ nav ul.show {
   margin: 10px;
 }
 
-/*Experience section */
-
-/* .experiences {
-  background-color: var(--bg-color);
-  padding: 32px 0;
-  margin-top: 2rem;
-}
-
-.experience-pic {
-  width: 65%;
-  height: 60%;
-}
-
-.experiences-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.experiences-title {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.experience-container {
-  text-align: left;
-  width: 21.875rem;
-  padding: 1rem;
-}
-
-
-.experience-container ol {
-  padding: 0.4rem;
-}
-
 .experience-title {
   margin-bottom: var(--bottom-margin);
 }
@@ -321,7 +297,8 @@ nav ul.show {
 
 .experience-container {
   text-align: left;
-  width: 21.875rem; /* Set a fixed width */
+  width: 35rem; /* Set a fixed width */
+  height: 41rem;
   padding: 1rem;
   display: flex;
   flex-direction: column; /* Ensure content inside the card is stacked vertically */
@@ -388,8 +365,15 @@ nav ul.show {
 
 .projects-container {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
+  gap: 20px;
+}
+
+.project-link a{
+  margin-top: 10px;
+  text-align: right; /* Align link to the right */
 }
 
 
@@ -399,9 +383,10 @@ nav ul.show {
 }
 
 .project-container {
-  text-align: center;
-  width: 21.875rem;
-  padding: 1rem;
+  text-align:justify;
+  width: 30rem;
+  height:30rem;
+  padding: 0.5rem;
 }
 
 
@@ -423,7 +408,28 @@ nav ul.show {
   box-shadow: 0 3px 10px var(--primary-shadow);
   padding: 20px;
   margin: 10px;
+  flex: 1 1 calc(33% - 40px); /* Allow flexible sizing */
+  max-width: 35rem;
 }
+
+/* Ensure responsiveness */
+@media (max-width: 800px) {
+  .project-container {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center;
+  }
+
+  .project-container {
+    width: 100%; /* Make cards full width on smaller screens */
+    max-width: 500px; /* Optional: set a max width for smaller screens */
+  }
+
+  .project-card {
+    width: 100%; /* Ensure full width for project cards */
+    max-width: 500px; /* Optional: set a max width for project cards */
+  }
+}
+
 
 
 /* Contact section */
