@@ -121,7 +121,6 @@ nav ul.show {
   transform: translateX(0);
 }
 
-/* Hero section */
 
 /* Hero section */
 .hero {
@@ -130,6 +129,7 @@ nav ul.show {
   justify-content: space-evenly; /* Ensure space between nav and about */
   max-width: 68.75rem;
   margin: 2.5rem auto; /* Add margin to create space between nav and about */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 /* Container for the circular frame */
@@ -139,22 +139,24 @@ nav ul.show {
   border-radius: 50%; /* Make it a circle */
   overflow: hidden; /* Hide overflow content */
   box-shadow: 0px 2px 15px 2px var(--primary-shadow);
+  margin-bottom: 1rem; /* Add margin for spacing on smaller screens */
 }
 
 /* Image */
 .hero-img {
   width: 100%; /* Make the image fill its container */
-  height: auto; /* Maintain aspect ratio */
+  height: 100%; /* Make the image fill its container */
+  object-fit: cover; /* Ensure the image covers the container */
+  object-position: center 30%; /* Position the image slightly lower */
   display: block; /* Ensure proper display */
-  border-radius: 30%; /* Make the image circular */
 }
-
 
 .bio {
   width: 25rem;
   padding: 0.625rem;
   border-radius: 6px;
   box-shadow: 0px 2px 15px 2px var(--primary-shadow);
+  text-align: center; /* Center align for better appearance on small screens */
 }
 
 .bio h1 {
@@ -166,66 +168,43 @@ nav ul.show {
   padding: 0.3rem 0;
 }
 
+/* Media Queries for Responsiveness */
 
-/* More about section */
-
-.more-about {
-  background-color: var(--bg-color);
-  padding: 1rem 6rem;
-}
-
-.more-about h2 {
-  margin-bottom: var(--bottom-margin);
-  text-align: center;
-}
-
-.more-about p {
-  line-height: var(--line-height);
-  padding: 0.4rem;
-}
-
-
-
-      /* Button Styles */
-    #more-about-me-btn {
-      display: block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      background-color: #35A99C;
-      color: #fff;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-       /* Align the button to the right */
-      margin-right: 15px; /* Adjust the right margin */
+/* For tablets and larger devices */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* Stack items vertically */
   }
 
-  /* Content Styles */
-  #more-about-me-content {
-      display: none;
-      margin: 20px auto; /* Center the content horizontally */
-      padding: 20px;
-      background-color: #fff; /* Set background color to white */
-      border-radius: 10px; /* Rounded corners for the box */
-      border: 2px solid #ccc; /* Border around the box */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth effect */
-      width: 80%; /* Set the width of the content box */
-      max-width: 600px; /* Set maximum width to ensure it's not too wide on larger screens */
-      float: right; /* Align the content to the right */
+  .hero-img-container {
+    width: 15rem; /* Adjust size for tablets */
+    height: 15rem; /* Adjust size for tablets */
   }
 
-  /* Responsive Styles */
-  @media screen and (max-width: 768px) {
-      #more-about-me-btn {
-          width: 100%;
-          float: none; /* Remove float on smaller screens */
-          margin-right: 0; /* Remove right margin on smaller screens */
-      }
-      #more-about-me-content {
-          width: 100%; /* Set width to 100% for smaller screens */
-          float: none; /* Remove float on smaller screens */
-      }
+  .bio {
+    width: 80%; /* Adjust width for tablets */
+    padding: 1rem;
   }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .hero {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .hero-img-container {
+    width: 10rem; /* Adjust size for mobile devices */
+    height: 10rem; /* Adjust size for mobile devices */
+  }
+
+  .bio {
+    width: 90%; /* Adjust width for mobile devices */
+    padding: 1rem;
+  }
+}
+
+
 /* Skills */
 
 .skills {
@@ -351,7 +330,6 @@ nav ul.show {
 
 
 /* Projects Section */
-
 .projects {
   background-color: var(--bg-color);
   padding: 32px 0;
@@ -359,8 +337,9 @@ nav ul.show {
 }
 
 .project-pic {
-  width: 65%;
-  height: 60%;
+  width: 80%; /* Adjusted for better responsiveness */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Set a maximum height */
 }
 
 .projects-container {
@@ -371,11 +350,10 @@ nav ul.show {
   gap: 20px;
 }
 
-.project-link a{
+.project-link a {
   margin-top: 10px;
   text-align: right; /* Align link to the right */
 }
-
 
 .projects-title {
   text-align: center;
@@ -383,12 +361,11 @@ nav ul.show {
 }
 
 .project-container {
-  text-align:justify;
-  width: 30rem;
-  height:30rem;
+  text-align: justify;
+  width: 100%; /* Adjusted for better responsiveness */
+  height: auto; /* Adjusted for better responsiveness */
   padding: 0.5rem;
 }
-
 
 .project-container p {
   padding: 0.4rem;
@@ -412,23 +389,42 @@ nav ul.show {
   max-width: 35rem;
 }
 
-/* Ensure responsiveness */
-@media (max-width: 800px) {
-  .project-container {
-    flex-direction: column; /* Stack cards vertically on smaller screens */
-    align-items: center;
-  }
+/* Media Queries for Responsiveness */
 
-  .project-container {
-    width: 100%; /* Make cards full width on smaller screens */
-    max-width: 500px; /* Optional: set a max width for smaller screens */
-  }
-
+/* For tablets and larger devices */
+@media (max-width: 768px) {
   .project-card {
-    width: 100%; /* Ensure full width for project cards */
-    max-width: 500px; /* Optional: set a max width for project cards */
+    flex: 1 1 calc(50% - 40px); /* Adjust to 2 columns */
+    max-width: 100%;
+  }
+
+  .project-container {
+    width: 100%;
+  }
+
+  .project-pic {
+    width: 70%; /* Reduce size for tablets */
+    max-height: 250px; /* Adjust max height for tablets */
   }
 }
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .project-card {
+    flex: 1 1 calc(100% - 40px); /* Adjust to 1 column */
+    max-width: 100%;
+  }
+
+  .project-container {
+    width: 100%;
+  }
+
+  .project-pic {
+    width: 60%; /* Reduce size for mobile devices */
+    max-height: 200px; /* Adjust max height for mobile devices */
+  }
+}
+
 
 
 
